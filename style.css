@@ -1,1 +1,683 @@
+/* =========================
 
+   GLOBAL RESET
+
+========================= */
+
+
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: "Segoe UI", sans-serif;
+
+}
+
+
+
+/* =========================
+
+   BACKGROUND (SMART CITY THEME)
+
+========================= */
+
+
+
+body {
+
+    min-height: 100vh;
+
+    color: #ffffff;
+
+
+
+    background:
+
+        linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.88)),
+
+        url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df");
+
+
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+}
+
+
+
+/* MAIN WRAPPER */
+
+.overlay {
+
+    padding: 25px;
+
+}
+
+
+
+/* =========================
+
+   HEADER
+
+========================= */
+
+
+
+header {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+header h1 {
+
+    font-size: 34px;
+
+    color: #00e5ff;
+
+    text-shadow: 0 0 18px #00e5ff;
+
+}
+
+
+
+header p {
+
+    opacity: 0.8;
+
+    margin-top: 8px;
+
+}
+
+
+
+/* =========================
+
+   STATUS PANEL
+
+========================= */
+
+
+
+.status-panel {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.status-card {
+
+    background: rgba(255,255,255,0.07);
+
+    padding: 10px 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+
+.dot {
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: lime;
+
+    box-shadow: 0 0 12px lime;
+
+}
+
+
+
+/* =========================
+
+   INPUT PANEL
+
+========================= */
+
+
+
+.input-panel {
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(14px);
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.input-panel h2 {
+
+    text-align: center;
+
+    color: #00e5ff;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.inputs {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 15px;
+
+}
+
+
+
+.input-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+
+label {
+
+    font-size: 13px;
+
+    opacity: 0.8;
+
+    margin-bottom: 5px;
+
+}
+
+
+
+input, select {
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    border: none;
+
+    outline: none;
+
+    background: rgba(0,0,0,0.45);
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+}
+
+
+
+/* =========================
+
+   BUTTONS
+
+========================= */
+
+
+
+.button-container {
+
+    margin-top: 18px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+}
+
+
+
+button {
+
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+
+
+    background: linear-gradient(135deg, #00e5ff, #0077ff);
+
+    color: white;
+
+
+
+    box-shadow: 0 0 12px rgba(0,229,255,0.4);
+
+    transition: 0.3s ease;
+
+}
+
+
+
+button:hover {
+
+    transform: scale(1.06);
+
+    box-shadow: 0 0 22px rgba(0,229,255,0.8);
+
+}
+
+
+
+/* =========================
+
+   METRICS CARDS
+
+========================= */
+
+
+
+.metrics-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 15px;
+
+    margin-top: 15px;
+
+}
+
+
+
+.metric-card {
+
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(10px);
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+}
+
+
+
+.metric-card h3 {
+
+    font-size: 13px;
+
+    opacity: 0.8;
+
+}
+
+
+
+.metric-card p {
+
+    font-size: 22px;
+
+    margin-top: 10px;
+
+    color: #00e5ff;
+
+}
+
+
+
+/* =========================
+
+   SENSOR NETWORK
+
+========================= */
+
+
+
+.sensor-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 15px;
+
+    margin-top: 15px;
+
+}
+
+
+
+.sensor-card {
+
+    background: rgba(255,255,255,0.06);
+
+    border-radius: 14px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+}
+
+
+
+.sensor {
+
+    width: 90px;
+
+    height: 45px;
+
+    margin: 10px auto;
+
+    background: #0f172a;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    box-shadow: 0 0 12px rgba(0,229,255,0.25);
+
+}
+
+
+
+.lens {
+
+    width: 18px;
+
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #00e5ff;
+
+    box-shadow: 0 0 10px #00e5ff;
+
+}
+
+
+
+/* =========================
+
+   ESP32
+
+========================= */
+
+
+
+.esp32 {
+
+    width: 300px;
+
+    margin: 20px auto;
+
+    padding: 20px;
+
+    text-align: center;
+
+    background: rgba(0,0,0,0.55);
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(0,229,255,0.25);
+
+    box-shadow: 0 0 15px rgba(0,229,255,0.2);
+
+}
+
+
+
+.chip {
+
+    width: 100px;
+
+    height: 60px;
+
+    margin: 10px auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #111;
+
+    color: #00e5ff;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 18px #00e5ff;
+
+}
+
+
+
+/* =========================
+
+   FLOW
+
+========================= */
+
+
+
+.flow {
+
+    text-align: center;
+
+    font-size: 18px;
+
+    margin: 15px 0;
+
+    opacity: 0.85;
+
+}
+
+
+
+/* =========================
+
+   TRAFFIC LIGHTS
+
+========================= */
+
+
+
+.traffic-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+    gap: 20px;
+
+}
+
+
+
+.signal-box {
+
+    text-align: center;
+
+}
+
+
+
+.traffic-light {
+
+    width: 70px;
+
+    margin: auto;
+
+    padding: 10px;
+
+    background: #111;
+
+    border-radius: 14px;
+
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+
+}
+
+
+
+.light {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    margin: 8px auto;
+
+    background: #333;
+
+}
+
+
+
+/* ACTIVE LIGHTS */
+
+
+
+.red.active {
+
+    background: red;
+
+    box-shadow: 0 0 18px red;
+
+}
+
+
+
+.yellow.active {
+
+    background: yellow;
+
+    box-shadow: 0 0 18px yellow;
+
+}
+
+
+
+.green.active {
+
+    background: lime;
+
+    box-shadow: 0 0 18px lime;
+
+}
+
+
+
+/* =========================
+
+   REPORT + LOG BOX
+
+========================= */
+
+
+
+#report, #logBox {
+
+    margin-top: 12px;
+
+    padding: 15px;
+
+    background: rgba(255,255,255,0.06);
+
+    border-radius: 14px;
+
+    backdrop-filter: blur(10px);
+
+    line-height: 1.6;
+
+}
+
+
+
+/* =========================
+
+   HEADINGS
+
+========================= */
+
+
+
+h2 {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    margin-bottom: 10px;
+
+    color: #00e5ff;
+
+}
