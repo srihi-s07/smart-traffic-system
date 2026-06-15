@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart City Traffic Command Center</title>
+
+
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+
+<body>
+
+
+
+    <div class="overlay">
+
+
+
+        <!-- ================= HEADER ================= -->
+
+
+
+        <header>
+
+            <h1>🚦 Smart City Traffic Command Center</h1>
+
+            <p>Digital Twin of an IoT-Based Adaptive Traffic Management System</p>
+
+        </header>
+
+
+
+        <!-- ================= SYSTEM STATUS ================= -->
+
+
+
+        <section class="status-panel">
+
+
+
+            <div class="status-card">
+
+                <span class="dot"></span>
+
+                IR Sensors Online
+
+            </div>
+
+
+
+            <div class="status-card">
+
+                <span class="dot"></span>
+
+                ESP32 Controller Active
+
+            </div>
+
+
+
+            <div class="status-card">
+
+                <span class="dot"></span>
+
+                Cloud Analytics Running
+
+            </div>
+
+
+
+            <div class="status-card">
+
+                <span class="dot"></span>
+
+                Traffic Network Stable
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ================= INPUT SECTION ================= -->
+
+
+
+        <section class="input-panel">
+
+
+
+            <h2>Traffic Input Control Panel</h2>
+
+
+
+            <div class="inputs">
+
+
+
+                <div class="input-group">
+
+                    <label>Road A Vehicles</label>
+
+                    <input type="number" id="roadA" placeholder="Enter vehicles on Road A">
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>Road B Vehicles</label>
+
+                    <input type="number" id="roadB" placeholder="Enter vehicles on Road B">
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>Road C Vehicles</label>
+
+                    <input type="number" id="roadC" placeholder="Enter vehicles on Road C">
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>Road D Vehicles</label>
+
+                    <input type="number" id="roadD" placeholder="Enter vehicles on Road D">
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>Weather Condition</label>
+
+                    <select id="weather">
+
+                        <option value="Sunny">Sunny</option>
+
+                        <option value="Rainy">Rainy</option>
+
+                        <option value="Foggy">Foggy</option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>Accident Location</label>
+
+                    <select id="accidentRoad">
+
+                        <option value="">No Accident</option>
+
+                        <option value="A">Road A</option>
+
+                        <option value="B">Road B</option>
+
+                        <option value="C">Road C</option>
+
+                        <option value="D">Road D</option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>Emergency Vehicle</label>
+
+                    <select id="emergency">
+
+                        <option value="No">No</option>
+
+                        <option value="Yes">Yes</option>
+
+                    </select>
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <!-- ================= ACTION BUTTONS ================= -->
+
+
+
+            <div class="button-container">
+
+
+
+                <button onclick="analyzeTraffic()">
+
+                    🚦 Optimize Traffic
+
+                </button>
+
+
+
+                <button onclick="simulateAccident()">
+
+                    🚨 Process Accident
+
+                </button>
+
+
+
+                <button onclick="emergencyMode()">
+
+                    🚑 Activate Green Corridor
+
+                </button>
+
+
+
+                <button onclick="resetSystem()">
+
+                    🔄 Reset System
+
+                </button>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ================= METRICS ================= -->
+
+
+
+        <section>
+
+
+
+            <h2>📊 Smart City Metrics</h2>
+
+
+
+            <div class="metrics-grid">
+
+
+
+                <div class="metric-card">
+
+                    <h3>Total Vehicles</h3>
+
+                    <p id="totalVehicles">0</p>
+
+                </div>
+
+
+
+                <div class="metric-card">
+
+                    <h3>Traffic Status</h3>
+
+                    <p id="trafficStatus">Waiting</p>
+
+                </div>
+
+
+
+                <div class="metric-card">
+
+                    <h3>CO₂ Emission Estimate</h3>
+
+                    <p id="co2Estimate">0 kg/hr</p>
+
+                </div>
+
+
+
+                <div class="metric-card">
+
+                    <h3>Recommended Route</h3>
+
+                    <p id="recommendedRoute">-</p>
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ================= SENSOR NETWORK ================= -->
+
+
+
+        <section>
+
+
+
+            <h2>📡 IR Sensor Network (Simulated)</h2>
+
+
+
+            <div class="sensor-grid">
+
+
+
+                <div class="sensor-card">
+
+                    <div class="sensor">
+
+                        <div class="lens"></div>
+
+                        <div class="lens"></div>
+
+                    </div>
+
+                    <h3>Road A Sensor</h3>
+
+                    <p id="sensorA">Waiting for Data</p>
+
+                </div>
+
+
+
+                <div class="sensor-card">
+
+                    <div class="sensor">
+
+                        <div class="lens"></div>
+
+                        <div class="lens"></div>
+
+                    </div>
+
+                    <h3>Road B Sensor</h3>
+
+                    <p id="sensorB">Waiting for Data</p>
+
+                </div>
+
+
+
+                <div class="sensor-card">
+
+                    <div class="sensor">
+
+                        <div class="lens"></div>
+
+                        <div class="lens"></div>
+
+                    </div>
+
+                    <h3>Road C Sensor</h3>
+
+                    <p id="sensorC">Waiting for Data</p>
+
+                </div>
+
+
+
+                <div class="sensor-card">
+
+                    <div class="sensor">
+
+                        <div class="lens"></div>
+
+                        <div class="lens"></div>
+
+                    </div>
+
+                    <h3>Road D Sensor</h3>
+
+                    <p id="sensorD">Waiting for Data</p>
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ================= ESP32 ================= -->
+
+
+
+        <section>
+
+
+
+            <h2>⚙️ ESP32 Traffic Controller</h2>
+
+
+
+            <div class="esp32">
+
+
+
+                <div class="chip">
+
+                    ESP32
+
+                </div>
+
+
+
+                <div class="controller-info">
+
+                    SYSTEM STATUS: ONLINE
+
+                    <br><br>
+
+                    Processing Real-Time Traffic Data
+
+                    <br>
+
+                    Executing Smart Decisions
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ================= DATA FLOW ================= -->
+
+
+
+        <section>
+
+
+
+            <h2>☁️ IoT Communication Architecture</h2>
+
+
+
+            <div class="flow">
+
+
+
+                📡 IR Sensors → ⚙️ ESP32 → ☁️ Cloud → 🚦 Traffic Signals
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ================= TRAFFIC LIGHTS ================= -->
+
+
+
+        <section>
+
+
+
+            <h2>🚦 Traffic Signal Status</h2>
+
+
+
+            <div class="traffic-grid">
+
+
+
+                <div class="signal-box">
+
+                    <h3>Road A</h3>
+
+                    <div class="traffic-light" id="signalA">
+
+                        <div class="light red active"></div>
+
+                        <div class="light yellow"></div>
+
+                        <div class="light green"></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="signal-box">
+
+                    <h3>Road B</h3>
+
+                    <div class="traffic-light" id="signalB">
+
+                        <div class="light red active"></div>
+
+                        <div class="light yellow"></div>
+
+                        <div class="light green"></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="signal-box">
+
+                    <h3>Road C</h3>
+
+                    <div class="traffic-light" id="signalC">
+
+                        <div class="light red active"></div>
+
+                        <div class="light yellow"></div>
+
+                        <div class="light green"></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="signal-box">
+
+                    <h3>Road D</h3>
+
+                    <div class="traffic-light" id="signalD">
+
+                        <div class="light red active"></div>
+
+                        <div class="light yellow"></div>
+
+                        <div class="light green"></div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ================= REPORT ================= -->
+
+
+
+        <section>
+
+
+
+            <h2>📈 Traffic Intelligence Report</h2>
+
+
+
+            <div id="report">
+
+                Enter input values and click <b>Optimize Traffic</b> to generate analysis.
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ================= DECISION LOG ================= -->
+
+
+
+        <section>
+
+
+
+            <h2>🧠 Controller Decision Log</h2>
+
+
+
+            <div id="logBox">
+
+                [SYSTEM] Initializing Smart Traffic Controller...
+
+            </div>
+
+
+
+        </section>
+
+
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+
+
+</body>
+
+
+
+</html>
